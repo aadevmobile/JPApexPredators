@@ -13,17 +13,18 @@ struct PredatorDetail: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView {
-                ZStack (alignment: .bottomTrailing) {
+                ZStack //(alignment: .bottomTrailing)
+                {
                     // background image
                     Image( predator.type.rawValue)
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                     
                     // predator image
                     Image(predator.image)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: geo.size.width/1.7, height: geo.size.height/3.7)
+                        .frame(width: geo.size.width, height: geo.size.height)
                         .scaleEffect(x: -1)
                         .shadow(color: .black, radius: 7)
                         .offset(y: 20)
