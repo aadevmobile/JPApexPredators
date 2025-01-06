@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import MapKit
 
 // >> STRUCT APEX PREDATOR
 struct ApexPredator: Decodable, Identifiable {
@@ -23,19 +24,20 @@ struct ApexPredator: Decodable, Identifiable {
     
     var image: String {
         name.lowercased().replacingOccurrences(of: " ", with: "")
+    }
     
-    } // STRUCT APEX PREDATOR <<
+    var location: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
     // >> STRUCT MOVIE SCENE
-    struct MovieScene: Decodable {
+    struct MovieScene: Decodable, Identifiable {
         let id: Int
         let movie: String
         let sceneDescription: String
     } // STRUCT MOVIE SCENE <<
-    
-    
-    
 } // STRUCT APEX PREDATOR <<
+
 
 // >> ENUM AP TYPE
 enum APType: String, Decodable, CaseIterable, Identifiable {
